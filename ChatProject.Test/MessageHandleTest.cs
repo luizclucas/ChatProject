@@ -1,5 +1,4 @@
-﻿using ChatProject.Domain.Entities;
-using ChatProject.Domain.Enum;
+﻿using ChatProject.Domain.Enum;
 using ChatProject.Domain.Exceptions;
 using ChatProject.Domain.Services;
 using Xunit;
