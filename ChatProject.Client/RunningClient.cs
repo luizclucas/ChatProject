@@ -16,6 +16,7 @@ namespace ChatProject.ClientSide
         public ConnectionDomainService _connectionService;
         private ILogger _log = Log.ForContext<RunningClient>();
         private MessageHandleDomainService _messageHandleDomainService;
+        private string MessageReceived { get; set; }
         #endregion
 
         #region [ CONSTRUCTOR ]
@@ -56,21 +57,18 @@ namespace ChatProject.ClientSide
                 }
             }
 
+            Thread receiveThread = new Thread(async () => await ReceiveAsync(client));
+            receiveThread.Start();
+
             return client;
         }
 
         public async Task RunningAsync(Client client)
-        {
-            // Display connected status
-            Console.Clear();
-
-            Thread receiveThread = new Thread(async () => await ReceiveAsync(client));
-
-            receiveThread.Start();
-
+        {      
             while (true)
             {
-                var sentence = Console.ReadLine();
+                string sentence = Console.ReadLine();
+
                 try
                 {
                     var messageToBeSend = _messageHandleDomainService.CreatingMessageToBeSend(sentence);
@@ -85,12 +83,14 @@ namespace ChatProject.ClientSide
                         _log.Information(messageToBeSend.Help);
                         continue;
                     }
-
-                    await Send(client, messageToBeSend);
+                    //Used to test.
+                    MessageReceived = null;
+                    await SendAsync(client, messageToBeSend);
                 }
                 catch (InvalidCommandException ex)
                 {
                     _log.Information(ex.Message);
+                    throw;
                 }
                 catch (Exception e)
                 {
@@ -103,12 +103,12 @@ namespace ChatProject.ClientSide
         /// Sends a message to the server
         /// </summary>
         /// <param name="client"></param>
-        private async Task Send(Client client, Message message)
+        private async Task SendAsync(Client client, Message message)
         {
             client.Message.CreateMessageToBeSend(message);
             byte[] data = client.Message.ConvertMessageToBeSendToBytes();
 
-            await Task.Delay(2500);
+            await Task.Delay(200);
             try
             {
                 client.Socket.BeginSend(data, 0, data.Length, SocketFlags.None, new AsyncCallback(SendCallback), client);
@@ -124,7 +124,14 @@ namespace ChatProject.ClientSide
                 Console.WriteLine(ex.Message);
                 Thread.CurrentThread.Abort();
             }
+        }
 
+        public async Task<string> SendTestAsync(Client client, string sentence)
+        {
+            var messageToBeSend = _messageHandleDomainService.CreatingMessageToBeSend(sentence);
+            await SendAsync(client, messageToBeSend);
+            await Task.Delay(2000);
+            return MessageReceived;
         }
 
         /// <summary>
@@ -155,7 +162,6 @@ namespace ChatProject.ClientSide
                 catch (Exception)
                 {
                     Thread.CurrentThread.Abort();
-                    return;
                 }
 
                 // Check message
@@ -166,9 +172,10 @@ namespace ChatProject.ClientSide
                     // Check if i received the full message
                     if (client.MessageReceived())
                     {
-
-                        _log.Information(client.Message.IncomingMessage.Replace(MessageParameters.MessageEnd, ""));
+                        string messageReceived = client.Message.IncomingMessage.Replace(MessageParameters.MessageEnd, "");
+                        _log.Information(messageReceived);
                         client.Message.ClearIncomingMessage();
+                        MessageReceived = messageReceived;
                     }
                 }
             }

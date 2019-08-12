@@ -144,6 +144,7 @@ namespace ChatProject.Server
                         try
                         {
                             SetNickName(client, message.ClientNickname);
+                            SendToClient(client, "You were registered Succesfully!");
                         }
                         catch (DuplicateNickNameException)
                         {
