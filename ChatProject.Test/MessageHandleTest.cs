@@ -8,16 +8,7 @@ namespace ChatProject.Test
 {
     public class MessageHandleTest
     {
-        public const string ListUsers = "LU";
-        public const string Nickname = "NAME";
-        public const string Userprivate = "PR";
-        public const string Userpublic = "P";
-        public const string CreateRoom = "CTR";
-        public const string ChangeRoom = "CR";
-        public const string ListRoom = "LR";
-        public const string Help = "HELP";
-        public const string Exit = "EXIT";
-
+        
         private MessageHandleDomainService _messageHandleDomainService = new MessageHandleDomainService();
 
         [Fact]
