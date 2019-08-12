@@ -19,11 +19,11 @@ namespace ChatProject.Domain.Entities
             get
             {
                 return "\n/LU => List the users that are in your room. \n" +
- "/NAME => To set your nickname to let you be able to talk with others.\n" +
- "/PR => Let you send private message to a person.\n" +
- "/P => Let you send public message to a person.\n" +
- "/CTR => Creating a room\n" +
- "/CR => Changing room\n" +
+ "/NAME {YourName} => To set your nickname to let you be able to talk with others.\n" +
+ "/PR {Person} {Message} => Let you send private message to a person.\n" +
+ "/P {Person} {Message} => Let you send public message to a person.\n" +
+ "/CTR {RoomName} => Creating a room\n" +
+ "/CR {RoomName} => Changing room\n" +
  "/LR => List rooms.\n" +
  "/HELP => Show all commands\n" +
  "/EXIT => Leave chat.\n";

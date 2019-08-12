@@ -21,7 +21,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatProject.Helper", "ChatP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatProject.ClientSide", "ChatProject.Client\ChatProject.ClientSide.csproj", "{0DC10B25-9C3D-4354-8416-A124D489DB91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatProject.Test", "ChatProject.Test\ChatProject.Test.csproj", "{E3D33E17-73F8-42CE-A4C4-793736B01702}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatProject.Test", "ChatProject.Test\ChatProject.Test.csproj", "{E3D33E17-73F8-42CE-A4C4-793736B01702}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{159EA3DF-B238-4FC2-BFE1-C17D8A4C5335}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
