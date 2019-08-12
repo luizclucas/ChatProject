@@ -34,12 +34,7 @@ namespace ChatProject.ClientSide
 
                 if (Debugger.IsAttached)
                     Debugger.Break();
-            }
-            finally
-            {
-                Log.Information("Press ENTER to exit...");
-                Console.ReadLine();
-            }
+            }            
         }
 
         public static T GetService<T>() => RootServiceProvider.GetRequiredService<T>();

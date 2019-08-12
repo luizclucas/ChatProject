@@ -75,6 +75,7 @@ namespace ChatProject.ClientSide
 
                     if (messageToBeSend.Exit)
                     {
+                        client.Close();
                         _log.Information("Disconected, Bye!");
                         break;
                     }
