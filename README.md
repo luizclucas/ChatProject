@@ -14,6 +14,8 @@ https://dotnet.microsoft.com/download
 
 5 - Enter on that folder published in step4 to the ClientSide and execute: dotnet ChatProject.ClientSide.dll
 
+### When using visual studio, make sure you have .netcore 2.2 or newer installed, so just execute it.
+
 ### **** Chat Commands ****
 
 /LU => List the users that are in your room.
