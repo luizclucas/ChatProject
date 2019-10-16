@@ -27,4 +27,4 @@ https://dotnet.microsoft.com/download
 /EXIT => Leave chat.
 
 
-Otherwise you can run using visual studio and .net core needs to be the one saying "Compatible with Visual Studio".
+#### Otherwise you can run using visual studio and .net core needs to be the one saying "Compatible with Visual Studio".
