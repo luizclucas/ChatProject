@@ -1,6 +1,6 @@
 # ChatProject
 
-# Steps to run(Without Visual Studio):
+## Steps to run(Without Visual Studio):
 
 1- Download dotnet core RunTime and SDK on:
 https://dotnet.microsoft.com/download
@@ -13,7 +13,7 @@ https://dotnet.microsoft.com/download
 
 5 - Enter on that folder published in step4 to the ClientSide and execute: dotnet ChatProject.ClientSide.dll
 
-**** Chat Commands ****
+### **** Chat Commands ****
 
 /LU => List the users that are in your room.
 /NAME {YourName} => To set your nickname to let you be able to talk with others.
