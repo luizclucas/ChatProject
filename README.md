@@ -1,4 +1,5 @@
 # ChatProject
+  it's a multi-client-server using TCP/SOCKET in .net using some Design Patterns, it was developed for an interview test.
 
 ## Steps to run(Without Visual Studio):
 
