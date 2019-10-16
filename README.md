@@ -16,8 +16,8 @@ https://dotnet.microsoft.com/download
 
 ### **** Chat Commands ****
 
-/LU => List the users that are in your room.
-/NAME {YourName} => To set your nickname to let you be able to talk with others.
+/LU => List the users that are in your room. \n
+/NAME {YourName} => To set your nickname to let you be able to talk with others. \n
 /PR {Person} {Message} => Let you send private message to a person.
 /P {Person} {Message} => Let you send public message to a person.
 /CTR {RoomName} => Creating a room
